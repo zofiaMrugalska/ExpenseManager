@@ -26,21 +26,25 @@ const Navbar = () => {
         </ul>
 
         {isIconMenuOrClose ? (
+          <FiMenu
+            onClick={toggleIconsMenu}
+            size={30}
+            className="relative cursor-pointer md:hidden z-50"
+          />
+        ) : (
           <RxCross2
             onClick={toggleIconsMenu}
             size={30}
-            className="relative md:hidden z-50 text-white"
+            className="relative cursor-pointer md:hidden z-50 text-white"
           />
-        ) : (
-          <FiMenu onClick={toggleIconsMenu} size={30} className="relative md:hidden z-50" />
         )}
       </nav>
 
       <aside
         className={
           isIconMenuOrClose
-            ? "fixed right-0 top-0 w-[30%] h-full text-white bg-black opacity-90 md:hidden "
-            : "hidden"
+            ? "hidden"
+            : "fixed right-0 top-0 w-[30%] h-full text-white bg-black opacity-90 md:hidden "
         }
       >
         <ul
