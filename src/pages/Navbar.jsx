@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 import { FaRegMoon } from "react-icons/fa";
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiSun } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import { useState } from "react";
+import { useContext } from "react";
+import ModeContext from "../ModeContext";
 
 const Navbar = () => {
   const [isIconMenuOrClose, setIsIconMenuOrClose] = useState(true);
+
+  const { mode, toggleMode } = useContext(ModeContext);
+
+  const changeMode = () => {
+    toggleMode();
+  };
 
   const toggleIconsMenu = () => {
     setIsIconMenuOrClose(!isIconMenuOrClose);
@@ -22,7 +30,19 @@ const Navbar = () => {
           <Link to={"/expenses"} className=" font-semibold hover:scale-110 hover:text-green-600">
             Expenses
           </Link>
-          <FaRegMoon size={18} className="cursor-pointer hover:scale-125  hover:text-green-600" />
+          {mode === "light" ? (
+            <FaRegMoon
+              onClick={toggleMode}
+              size={18}
+              className="cursor-pointer hover:scale-125  hover:text-green-600"
+            />
+          ) : (
+            <FiSun
+              onClick={toggleMode}
+              size={24}
+              className="cursor-pointer hover:scale-125  hover:text-green-600"
+            />
+          )}
         </ul>
 
         {isIconMenuOrClose ? (
@@ -60,7 +80,20 @@ const Navbar = () => {
           >
             Expenses
           </Link>
-          <FaRegMoon size={18} className="cursor-pointer hover:scale-125  hover:text-green-600" />
+
+          {mode === "light" ? (
+            <FaRegMoon
+              onClick={toggleMode}
+              size={18}
+              className="cursor-pointer hover:scale-125  hover:text-green-600"
+            />
+          ) : (
+            <FiSun
+              onClick={toggleMode}
+              size={24}
+              className="cursor-pointer hover:scale-125  hover:text-green-600"
+            />
+          )}
         </ul>
       </aside>
     </section>
