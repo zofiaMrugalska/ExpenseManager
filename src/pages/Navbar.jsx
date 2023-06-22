@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
 import { FaRegMoon } from "react-icons/fa";
-import { FiMenu } from "react-icons/fi";
+import { FiMenu, FiSun } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import { useState } from "react";
+import { useContext } from "react";
+import ModeContext from "../ModeContext";
 
 const Navbar = () => {
   const [isIconMenuOrClose, setIsIconMenuOrClose] = useState(true);
+
+  const { mode, toggleMode } = useContext(ModeContext);
+
+  const changeMode = () => {
+    toggleMode();
+  };
 
   const toggleIconsMenu = () => {
     setIsIconMenuOrClose(!isIconMenuOrClose);
@@ -22,25 +30,41 @@ const Navbar = () => {
           <Link to={"/expenses"} className=" font-semibold hover:scale-110 hover:text-green-600">
             Expenses
           </Link>
-          <FaRegMoon size={18} className="cursor-pointer hover:scale-125  hover:text-green-600" />
+          {mode === "light" ? (
+            <FaRegMoon
+              onClick={toggleMode}
+              size={18}
+              className="cursor-pointer hover:scale-125  hover:text-green-600"
+            />
+          ) : (
+            <FiSun
+              onClick={toggleMode}
+              size={24}
+              className="cursor-pointer hover:scale-125  hover:text-green-600"
+            />
+          )}
         </ul>
 
         {isIconMenuOrClose ? (
+          <FiMenu
+            onClick={toggleIconsMenu}
+            size={30}
+            className="relative cursor-pointer md:hidden z-50"
+          />
+        ) : (
           <RxCross2
             onClick={toggleIconsMenu}
             size={30}
-            className="relative md:hidden z-50 text-white"
+            className="relative cursor-pointer md:hidden z-50 text-white"
           />
-        ) : (
-          <FiMenu onClick={toggleIconsMenu} size={30} className="relative md:hidden z-50" />
         )}
       </nav>
 
       <aside
         className={
           isIconMenuOrClose
-            ? "fixed right-0 top-0 w-[30%] h-full text-white bg-black opacity-90 md:hidden "
-            : "hidden"
+            ? "hidden"
+            : "fixed right-0 top-0 w-[30%] h-full text-white bg-black opacity-90 md:hidden "
         }
       >
         <ul
@@ -56,7 +80,20 @@ const Navbar = () => {
           >
             Expenses
           </Link>
-          <FaRegMoon size={18} className="cursor-pointer hover:scale-125  hover:text-green-600" />
+
+          {mode === "light" ? (
+            <FaRegMoon
+              onClick={toggleMode}
+              size={18}
+              className="cursor-pointer hover:scale-125  hover:text-green-600"
+            />
+          ) : (
+            <FiSun
+              onClick={toggleMode}
+              size={24}
+              className="cursor-pointer hover:scale-125  hover:text-green-600"
+            />
+          )}
         </ul>
       </aside>
     </section>
