@@ -6,11 +6,11 @@ import ModeContext from "../ModeContext";
 import { useContext } from "react";
 
 const Layout = () => {
-  const { mode, toggleMode } = useContext(ModeContext);
+  const { mode } = useContext(ModeContext);
   return (
     <div
       className={`min-h-[1024px] ${
-        mode === "light" ? "bg-white text-gray-950" : " bg-[#272626] text-white"
+        mode === "light" ? "bg-white text-gray-950" : " bg-[#1A1A1A] text-white"
       }`}
     >
       <BrowserRouter>

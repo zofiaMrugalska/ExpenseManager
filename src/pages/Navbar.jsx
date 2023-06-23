@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <section>
-      <nav className=" font-K2D p-7 flex items-end justify-between ">
+      <nav className=" font-K2D p-10 flex items-end justify-between ">
         <h1 className=" text-2xl sm:text-4xl font-bold">ExpenseManager</h1>
         <ul className=" hidden md:flex items-center gap-8 text-xl">
           <Link to={"/"} className=" font-semibold hover:scale-110 hover:text-green-600">
