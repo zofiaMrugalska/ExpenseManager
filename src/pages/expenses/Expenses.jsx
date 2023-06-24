@@ -1,4 +1,12 @@
+import Transaction from "./components/Transaction";
+import YourBudget from "./components/YourBudget";
+
 const Expenses = () => {
-  return <div>Expenses</div>;
+  return (
+    <div>
+      <YourBudget />
+      <Transaction />
+    </div>
+  );
 };
 export default Expenses;
