@@ -38,7 +38,7 @@ const Transaction = () => {
             INCOMES <SlArrowDown size={22} />
           </button>
           {incomesIsOpen && (
-            <form className="mt-4  grid grid-cols-2 gap-4">
+            <form className="mt-4 mb-14 grid grid-cols-2 gap-4">
               <div className="col-span-2">
                 <label>title:</label> <br />
                 <input type="text" className={`${inputStyle}`} />
@@ -51,6 +51,14 @@ const Transaction = () => {
                 <label>amount:</label> <br />
                 <input type="number" className={`${inputStyle}`} />
               </div>
+
+              <button
+                className={`col-span-2 rounded-lg ${
+                  mode === "light" ? "text-black" : "text-black"
+                } bg-[#78E476]`}
+              >
+                Add
+              </button>
             </form>
           )}
         </div>
@@ -63,7 +71,7 @@ const Transaction = () => {
             EXPENSES <SlArrowDown size={22} />
           </button>
           {expensesIsOpen && (
-            <form className="mt-4  grid grid-cols-2 gap-4">
+            <form className="mt-4 mb-14 grid grid-cols-2 gap-4">
               <div className="col-span-2">
                 <label>title:</label> <br />
                 <input type="text" className={`${inputStyle}`} />
@@ -76,6 +84,7 @@ const Transaction = () => {
                 <label>amount:</label> <br />
                 <input type="number" className={`${inputStyle}`} />
               </div>
+              <button className="col-span-2 rounded-lg bg-[#78E476]">Add</button>
             </form>
           )}
         </div>
