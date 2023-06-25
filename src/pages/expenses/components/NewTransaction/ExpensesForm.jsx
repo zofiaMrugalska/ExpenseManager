@@ -16,6 +16,7 @@ const ExpensesForm = () => {
 
   const expensesForm = (data) => {
     addHistoryData(data);
+    console.log(historyData);
     reset();
   };
 
@@ -38,7 +39,7 @@ const ExpensesForm = () => {
         <div>
           <label>date:</label> <br />
           <input
-            {...register("expansesDate", { required: "date is requried" })}
+            {...register("expensesDate", { required: "date is requried" })}
             type="date"
             className={`${inputStyle}`}
           />

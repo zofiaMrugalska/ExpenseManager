@@ -17,7 +17,6 @@ const IncomesForm = () => {
 
   const incomesForm = (data) => {
     addHistoryData(data);
-
     reset();
   };
 
