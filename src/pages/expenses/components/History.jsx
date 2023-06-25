@@ -2,6 +2,6 @@ import { useContext } from "react";
 import Context from "../../../Context";
 
 const History = () => {
-  return <div>TransactionHistory</div>;
+  return <div></div>;
 };
 export default History;
