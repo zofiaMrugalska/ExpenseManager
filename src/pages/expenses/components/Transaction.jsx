@@ -3,12 +3,14 @@ import { useState } from "react";
 import { useContext } from "react";
 import ModeContext from "../../../ModeContext";
 
+import Expenses from "./Expenses";
+import Incomes from "./Incomes";
+
 const Transaction = () => {
   const { mode } = useContext(ModeContext);
-
   const [incomesIsOpen, setIncomesIsOpen] = useState(false);
-
   const [expensesIsOpen, setExpensesIsOpen] = useState(false);
+
   const openCloseIncomes = () => {
     setIncomesIsOpen(!incomesIsOpen);
   };
@@ -19,7 +21,6 @@ const Transaction = () => {
 
   const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
 
-  const inputStyle = `border rounded-xl p-2 w-full ${changeBackgroundColor}`;
   return (
     <div className=" font-K2D">
       <section className="max-w-[600px] ">
@@ -37,30 +38,8 @@ const Transaction = () => {
           >
             INCOMES <SlArrowDown size={22} />
           </button>
-          {incomesIsOpen && (
-            <form className="mt-4 mb-14 grid grid-cols-2 gap-4">
-              <div className="col-span-2">
-                <label>title:</label> <br />
-                <input type="text" className={`${inputStyle}`} />
-              </div>
-              <div>
-                <label>date:</label> <br />
-                <input type="date" className={`${inputStyle}`} />
-              </div>
-              <div>
-                <label>amount:</label> <br />
-                <input type="number" className={`${inputStyle}`} />
-              </div>
 
-              <button
-                className={`col-span-2 rounded-lg ${
-                  mode === "light" ? "text-black" : "text-black"
-                } bg-[#78E476]`}
-              >
-                Add
-              </button>
-            </form>
-          )}
+          {incomesIsOpen && <Incomes />}
         </div>
 
         <div>
@@ -70,23 +49,8 @@ const Transaction = () => {
           >
             EXPENSES <SlArrowDown size={22} />
           </button>
-          {expensesIsOpen && (
-            <form className="mt-4 mb-14 grid grid-cols-2 gap-4">
-              <div className="col-span-2">
-                <label>title:</label> <br />
-                <input type="text" className={`${inputStyle}`} />
-              </div>
-              <div>
-                <label>date:</label> <br />
-                <input type="date" className={`${inputStyle}`} />
-              </div>
-              <div>
-                <label>amount:</label> <br />
-                <input type="number" className={`${inputStyle}`} />
-              </div>
-              <button className="col-span-2 rounded-lg bg-[#78E476]">Add</button>
-            </form>
-          )}
+
+          {expensesIsOpen && <Expenses />}
         </div>
       </section>
     </div>
