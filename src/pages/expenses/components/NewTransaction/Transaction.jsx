@@ -1,13 +1,13 @@
 import { SlArrowDown } from "react-icons/sl";
 import { useState } from "react";
 import { useContext } from "react";
-import ModeContext from "../../../ModeContext";
+import Context from "../../../../Context";
 
-import Expenses from "./Expenses";
-import Incomes from "./Incomes";
+import ExpensesForm from "./ExpensesForm";
+import IncomesForm from "./IncomesForm";
 
 const Transaction = () => {
-  const { mode } = useContext(ModeContext);
+  const { mode } = useContext(Context);
   const [incomesIsOpen, setIncomesIsOpen] = useState(false);
   const [expensesIsOpen, setExpensesIsOpen] = useState(false);
 
@@ -39,7 +39,7 @@ const Transaction = () => {
             INCOMES <SlArrowDown size={22} />
           </button>
 
-          {incomesIsOpen && <Incomes />}
+          {incomesIsOpen && <IncomesForm />}
         </div>
 
         <div>
@@ -50,7 +50,7 @@ const Transaction = () => {
             EXPENSES <SlArrowDown size={22} />
           </button>
 
-          {expensesIsOpen && <Expenses />}
+          {expensesIsOpen && <ExpensesForm />}
         </div>
       </section>
     </div>

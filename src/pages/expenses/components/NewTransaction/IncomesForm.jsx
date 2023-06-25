@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
-import ModeContext from "../../../ModeContext";
+import Context from "../../../../Context";
 
-const Incomes = () => {
-  const { mode } = useContext(ModeContext);
+const IncomesForm = () => {
+  const { mode } = useContext(Context);
   const {
     register,
     handleSubmit,
@@ -72,4 +72,4 @@ const Incomes = () => {
     </div>
   );
 };
-export default Incomes;
+export default IncomesForm;

@@ -1,9 +1,9 @@
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
-import ModeContext from "../../../ModeContext";
+import Context from "../../../../Context";
 
-const Expenses = () => {
-  const { mode } = useContext(ModeContext);
+const ExpensesForm = () => {
+  const { mode } = useContext(Context);
   const {
     register,
     handleSubmit,
@@ -64,4 +64,4 @@ const Expenses = () => {
     </div>
   );
 };
-export default Expenses;
+export default ExpensesForm;
