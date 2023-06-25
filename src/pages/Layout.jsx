@@ -2,11 +2,11 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./home/Home";
 import Expenses from "./expenses/Expenses";
 import Navbar from "./Navbar";
-import ModeContext from "../ModeContext";
+import Context from "../Context";
 import { useContext } from "react";
 
 const Layout = () => {
-  const { mode } = useContext(ModeContext);
+  const { mode } = useContext(Context);
   return (
     <div
       className={`min-h-[1024px] p-4 sm:py-6 sm:px-14 md:p-10 md:px-20 lg:px-40 xl:py-10 xl:px-52 ${

@@ -1,8 +1,8 @@
 import { useContext } from "react";
-import ModeContext from "../../../ModeContext";
+import Context from "../../../Context";
 
 const YourBudget = () => {
-  const { mode } = useContext(ModeContext);
+  const { mode } = useContext(Context);
   const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
   return (
     <div className="font-K2D">

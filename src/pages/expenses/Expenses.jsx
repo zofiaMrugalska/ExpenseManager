@@ -1,4 +1,5 @@
-import Transaction from "./components/Transaction";
+import Transaction from "./components/NewTransaction/Transaction";
+import History from "./components/History";
 import YourBudget from "./components/YourBudget";
 
 const Expenses = () => {
@@ -6,6 +7,7 @@ const Expenses = () => {
     <div>
       <YourBudget />
       <Transaction />
+      <History />
     </div>
   );
 };

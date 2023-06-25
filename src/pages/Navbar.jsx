@@ -4,12 +4,12 @@ import { FiMenu, FiSun } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import { useState } from "react";
 import { useContext } from "react";
-import ModeContext from "../ModeContext";
+import Context from "../Context";
 
 const Navbar = () => {
   const [isIconMenuOrClose, setIsIconMenuOrClose] = useState(true);
 
-  const { mode, toggleMode } = useContext(ModeContext);
+  const { mode, toggleMode } = useContext(Context);
 
   const changeMode = () => {
     toggleMode();
