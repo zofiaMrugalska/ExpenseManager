@@ -3,7 +3,7 @@ import { useContext } from "react";
 import Context from "../../../../Context";
 
 const ExpensesForm = () => {
-  const { mode } = useContext(Context);
+  const { mode, addHistoryData, historyData } = useContext(Context);
   const {
     register,
     handleSubmit,
@@ -15,7 +15,8 @@ const ExpensesForm = () => {
   const inputStyle = `border rounded-xl p-2 w-full ${changeBackgroundColor}`;
 
   const expensesForm = (data) => {
-    console.log(data);
+    addHistoryData(data);
+    console.log(historyData);
     reset();
   };
 
