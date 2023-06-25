@@ -4,12 +4,21 @@ const Context = createContext();
 
 export function ModeProvider({ children }) {
   const [mode, setMode] = useState("light");
+  const [historyData, setHistoryData] = useState([]);
+
+  const addHistoryData = (newObject) => {
+    setHistoryData([...historyData, newObject]);
+  };
 
   const toggleMode = () => {
     setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
   };
 
-  return <Context.Provider value={{ mode, toggleMode }}>{children}</Context.Provider>;
+  return (
+    <Context.Provider value={{ mode, toggleMode, historyData, addHistoryData }}>
+      {children}
+    </Context.Provider>
+  );
 }
 
 export default Context;
