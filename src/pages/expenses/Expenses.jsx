@@ -4,9 +4,12 @@ import YourBudget from "./components/YourBudget";
 
 const Expenses = () => {
   return (
-    <div>
-      <YourBudget />
-      <Transaction />
+    <div className="max-w-[1600px] grid grid-cols-1 lg:grid-cols-2 gap-12 ">
+      <div>
+        <YourBudget />
+        <Transaction />
+      </div>
+
       <History />
     </div>
   );

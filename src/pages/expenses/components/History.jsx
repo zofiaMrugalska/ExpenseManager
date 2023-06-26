@@ -9,7 +9,7 @@ const History = () => {
 
   return (
     <div className=" font-K2D">
-      <section className="max-w-[600px]">
+      <section className="max-w-[600px] lg:max-w-[800px] lg:mx-auto   ">
         <h1
           className={` mt-8  text-lg sm:text-2xl font-semibold border-b-2 ${
             mode === "light" ? "border-black" : "border-white"
