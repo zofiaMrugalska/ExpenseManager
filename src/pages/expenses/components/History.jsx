@@ -17,31 +17,33 @@ const History = () => {
         >
           History:
         </h1>
-        {reversedHistoryData.map((value, index) => {
-          return (
-            <div key={index}>
-              {value.incomesTitle && (
-                <div
-                  className={`grid grid-cols-3 text-center mt-5 py-3 px-6 rounded-xl text-base sm:text-lg ${changeBackgroundColor} `}
-                >
-                  <p>{value.incomesTitle}</p>
-                  <p>{value.incomesDate}</p>
-                  <p className=" text-green-600 font-semibold">{value.incomesAmount}$</p>
-                </div>
-              )}
+        <div className="max-w-[600px] max-h-[300px] overflow-auto">
+          {reversedHistoryData.map((value, index) => {
+            return (
+              <div key={index}>
+                {value.incomesTitle && (
+                  <div
+                    className={`grid grid-cols-3 text-center mt-5 py-3 px-6 rounded-xl text-base sm:text-lg ${changeBackgroundColor} `}
+                  >
+                    <p>{value.incomesTitle}</p>
+                    <p>{value.incomesDate}</p>
+                    <p className=" text-green-600 font-semibold">{value.incomesAmount}$</p>
+                  </div>
+                )}
 
-              {value.expensesTitle && (
-                <div
-                  className={`grid grid-cols-3 text-center mt-5 py-3 px-6 rounded-xl text-base sm:text-lg ${changeBackgroundColor} `}
-                >
-                  <p>{value.expensesTitle}</p>
-                  <p>{value.expensesDate}</p>
-                  <p className=" text-red-600 font-semibold">{value.expensesAmount}$</p>
-                </div>
-              )}
-            </div>
-          );
-        })}
+                {value.expensesTitle && (
+                  <div
+                    className={`grid grid-cols-3 text-center mt-5 py-3 px-6 rounded-xl text-base sm:text-lg ${changeBackgroundColor} `}
+                  >
+                    <p>{value.expensesTitle}</p>
+                    <p>{value.expensesDate}</p>
+                    <p className=" text-red-600 font-semibold">{value.expensesAmount}$</p>
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </section>
     </div>
   );
