@@ -3,8 +3,7 @@ import Context from "../../../../Context";
 import Filter from "./Filter";
 
 const History = () => {
-  const { mode } = useContext(Context);
-  const { historyData } = useContext(Context);
+  const { mode, historyData } = useContext(Context);
 
   const reversedHistoryData = [...historyData].reverse();
 

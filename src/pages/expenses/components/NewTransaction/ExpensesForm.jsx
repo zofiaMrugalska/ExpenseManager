@@ -16,7 +16,7 @@ const ExpensesForm = () => {
 
   const expensesForm = (data) => {
     addHistoryData(data);
-    console.log(historyData);
+
     reset();
   };
 

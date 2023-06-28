@@ -5,13 +5,28 @@ import Context from "../../../../Context";
 
 const Filter = () => {
   const [filterIsOpen, setFilterIsOpen] = useState(false);
-  const { mode } = useContext(Context);
+  const { mode, historyData, setHistoryData } = useContext(Context);
 
   const openCloseFilter = () => {
     setFilterIsOpen(!filterIsOpen);
   };
 
   const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
+  console.log(historyData);
+
+  const onlyIncomes = () => {
+    const showIncomes = historyData.filter((value) => {
+      return value.hasOwnProperty("incomesTitle");
+    });
+    setHistoryData(showIncomes);
+  };
+
+  const onlyExpenses = () => {
+    const showExpenses = historyData.filter((value) => {
+      return value.hasOwnProperty("expensesTitle");
+    });
+    setHistoryData(showExpenses);
+  };
 
   return (
     <div>
@@ -27,8 +42,12 @@ const Filter = () => {
       {filterIsOpen && (
         <div className="flex justify-end">
           <ul className="text-center px-4 pb-3">
-            <li className=" border-b-2 cursor-pointer">Incomes</li>
-            <li className=" border-b-2 cursor-pointer">Expenses</li>
+            <li className=" border-b-2 cursor-pointer" onClick={onlyIncomes}>
+              Incomes
+            </li>
+            <li className=" border-b-2 cursor-pointer" onClick={onlyExpenses}>
+              Expenses
+            </li>
             <li className=" border-b-2 cursor-pointer">All</li>
           </ul>
         </div>

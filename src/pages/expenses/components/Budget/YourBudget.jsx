@@ -5,7 +5,6 @@ const YourBudget = () => {
   const { mode } = useContext(Context);
   const { historyData } = useContext(Context);
 
-  console.log(historyData);
   const totalIncomesAmount = historyData.reduce((sum, amount) => {
     if (amount.incomesAmount) {
       return sum + amount.incomesAmount;
@@ -13,7 +12,6 @@ const YourBudget = () => {
       return sum;
     }
   }, 0);
-  console.log(totalIncomesAmount);
 
   const totalExpensesAmount = historyData.reduce((sum, amount) => {
     if (amount.expensesAmount) {
@@ -22,7 +20,6 @@ const YourBudget = () => {
       return sum;
     }
   }, 0);
-  console.log(totalExpensesAmount);
 
   const yourBudgetAmount = totalIncomesAmount - totalExpensesAmount;
 
