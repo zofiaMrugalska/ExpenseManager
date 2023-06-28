@@ -1,18 +1,12 @@
 import { useContext } from "react";
 import Context from "../../../../Context";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { useState } from "react";
+import Filter from "./Filter";
 
 const History = () => {
-  const [filterIsOpen, setFilterIsOpen] = useState(false);
   const { mode } = useContext(Context);
   const { historyData } = useContext(Context);
 
   const reversedHistoryData = [...historyData].reverse();
-
-  const openCloseFilter = () => {
-    setFilterIsOpen(!filterIsOpen);
-  };
 
   const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
 
@@ -27,24 +21,7 @@ const History = () => {
           >
             History:
           </h1>
-          <div className="flex justify-end pb-3 ">
-            <button
-              onClick={openCloseFilter}
-              className={`flex items-center max-w-[100px] px-6  ${changeBackgroundColor}`}
-            >
-              Filter <IoMdArrowDropdown />
-            </button>
-          </div>
-
-          {filterIsOpen && (
-            <div className="flex justify-end">
-              <ul className="text-center px-4 pb-3">
-                <li className=" border-b-2 cursor-pointer">Incomes</li>
-                <li className=" border-b-2 cursor-pointer">Expenses</li>
-                <li className=" border-b-2 cursor-pointer">All</li>
-              </ul>
-            </div>
-          )}
+          <Filter />
         </div>
 
         <div className="max-w-[600px] max-h-[300px] overflow-auto">
