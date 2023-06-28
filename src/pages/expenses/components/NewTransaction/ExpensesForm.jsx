@@ -54,6 +54,7 @@ const ExpensesForm = () => {
               min: { value: 1, message: "only positive numbers" },
             })}
             type="number"
+            step="0.01"
             className={`${inputStyle}`}
           />
           <p className="text-red-500 text-sm">{errors.expensesAmount?.message} </p>

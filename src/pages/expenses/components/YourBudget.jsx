@@ -37,12 +37,12 @@ const YourBudget = () => {
 
         <div className={` mt-4 p-7 rounded-xl ${changeBackgroundColor}`}>
           <h1 className=" text-sm sm:text-base font-medium">INCOMES:</h1>
-          <h2 className="mt-3 text-xl sm:text-3xl font-medium">+{totalIncomesAmount}.00$</h2>
+          <h2 className="mt-3 text-xl sm:text-3xl font-medium">+{totalIncomesAmount}$</h2>
         </div>
 
         <div className={` mt-4 p-6 rounded-xl ${changeBackgroundColor}`}>
           <h1 className=" text-sm sm:text-base font-medium">EXPENSES:</h1>
-          <h2 className="mt-3 text-xl sm:text-3xl font-medium">-{totalExpensesAmount}.00$</h2>
+          <h2 className="mt-3 text-xl sm:text-3xl font-medium">-{totalExpensesAmount}$</h2>
         </div>
       </section>
     </div>
