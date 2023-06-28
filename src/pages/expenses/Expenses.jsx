@@ -1,6 +1,6 @@
 import Transaction from "./components/NewTransaction/Transaction";
-import History from "./components/History";
-import YourBudget from "./components/YourBudget";
+import History from "./components/History/History";
+import YourBudget from "./components/Budget/YourBudget";
 
 const Expenses = () => {
   return (

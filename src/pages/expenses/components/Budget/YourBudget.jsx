@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import Context from "../../../Context";
+import Context from "../../../../Context";
 
 const YourBudget = () => {
   const { mode } = useContext(Context);
