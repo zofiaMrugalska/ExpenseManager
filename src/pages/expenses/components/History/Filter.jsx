@@ -14,20 +14,6 @@ const Filter = ({ setFilterIncomes, setFilterExpenses, setFilterAll }) => {
   const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
   console.log(historyData);
 
-  // const onlyIncomes = () => {
-  //   const showIncomes = historyData.filter((value) => {
-  //     return value.hasOwnProperty("incomesTitle");
-  //   });
-  //   setHistoryData(showIncomes);
-  // };
-
-  // const onlyExpenses = () => {
-  //   const showExpenses = historyData.filter((value) => {
-  //     return value.hasOwnProperty("expensesTitle");
-  //   });
-  //   setHistoryData(showExpenses);
-  // };
-
   const incomesFilter = () => {
     setFilterIncomes(true);
     setFilterExpenses(false);
