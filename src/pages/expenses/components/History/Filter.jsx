@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import Context from "../../../../Context";
 
-const Filter = () => {
+const Filter = ({ setFilterIncomes, setFilterExpenses, setFilterAll }) => {
   const [filterIsOpen, setFilterIsOpen] = useState(false);
   const { mode, historyData, setHistoryData } = useContext(Context);
 
@@ -14,18 +14,36 @@ const Filter = () => {
   const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
   console.log(historyData);
 
-  const onlyIncomes = () => {
-    const showIncomes = historyData.filter((value) => {
-      return value.hasOwnProperty("incomesTitle");
-    });
-    setHistoryData(showIncomes);
+  // const onlyIncomes = () => {
+  //   const showIncomes = historyData.filter((value) => {
+  //     return value.hasOwnProperty("incomesTitle");
+  //   });
+  //   setHistoryData(showIncomes);
+  // };
+
+  // const onlyExpenses = () => {
+  //   const showExpenses = historyData.filter((value) => {
+  //     return value.hasOwnProperty("expensesTitle");
+  //   });
+  //   setHistoryData(showExpenses);
+  // };
+
+  const incomesFilter = () => {
+    setFilterIncomes(true);
+    setFilterExpenses(false);
+    setFilterAll(false);
   };
 
-  const onlyExpenses = () => {
-    const showExpenses = historyData.filter((value) => {
-      return value.hasOwnProperty("expensesTitle");
-    });
-    setHistoryData(showExpenses);
+  const expensesFilter = () => {
+    setFilterIncomes(false);
+    setFilterExpenses(true);
+    setFilterAll(false);
+  };
+
+  const allFilter = () => {
+    setFilterIncomes(true);
+    setFilterExpenses(true);
+    setFilterAll(true);
   };
 
   return (
@@ -42,13 +60,15 @@ const Filter = () => {
       {filterIsOpen && (
         <div className="flex justify-end">
           <ul className="text-center px-4 pb-3">
-            <li className=" border-b-2 cursor-pointer" onClick={onlyIncomes}>
+            <li onClick={incomesFilter} className=" border-b-2 cursor-pointer">
               Incomes
             </li>
-            <li className=" border-b-2 cursor-pointer" onClick={onlyExpenses}>
+            <li onClick={expensesFilter} className=" border-b-2 cursor-pointer">
               Expenses
             </li>
-            <li className=" border-b-2 cursor-pointer">All</li>
+            <li onClick={allFilter} className=" border-b-2 cursor-pointer">
+              All
+            </li>
           </ul>
         </div>
       )}
