@@ -15,7 +15,7 @@ export function ModeProvider({ children }) {
   };
 
   return (
-    <Context.Provider value={{ mode, toggleMode, historyData, addHistoryData }}>
+    <Context.Provider value={{ mode, toggleMode, historyData, addHistoryData, setHistoryData }}>
       {children}
     </Context.Provider>
   );
