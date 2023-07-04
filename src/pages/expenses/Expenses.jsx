@@ -1,6 +1,7 @@
 import Transaction from "./components/NewTransaction/Transaction";
 import History from "./components/History/History";
 import YourBudget from "./components/Budget/YourBudget";
+import Chart from "./components/Chart/Chart";
 
 const Expenses = () => {
   return (
@@ -10,7 +11,10 @@ const Expenses = () => {
         <Transaction />
       </div>
 
-      <History />
+      <div>
+        <History />
+        <Chart />
+      </div>
     </div>
   );
 };
