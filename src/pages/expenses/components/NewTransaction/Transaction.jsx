@@ -1,15 +1,18 @@
-import { SlArrowDown } from "react-icons/sl";
-import { useState } from "react";
 import { useContext } from "react";
 import Context from "../../../../Context";
+import { SlArrowDown } from "react-icons/sl";
+import { useState } from "react";
 
 import ExpensesForm from "./ExpensesForm";
 import IncomesForm from "./IncomesForm";
 
 const Transaction = () => {
   const { mode } = useContext(Context);
+
   const [incomesIsOpen, setIncomesIsOpen] = useState(false);
   const [expensesIsOpen, setExpensesIsOpen] = useState(false);
+
+  const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
 
   const openCloseIncomes = () => {
     setIncomesIsOpen(!incomesIsOpen);
@@ -18,8 +21,6 @@ const Transaction = () => {
   const openCloseExpenses = () => {
     setExpensesIsOpen(!expensesIsOpen);
   };
-
-  const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
 
   return (
     <div className=" font-K2D">

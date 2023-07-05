@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import Context from "../../../../Context";
-import Filter from "./Filter";
 import { useState } from "react";
 import { HiOutlineTrash } from "react-icons/hi";
+
+import Filter from "./Filter";
 
 const History = () => {
   const { mode, historyData, setHistoryData } = useContext(Context);

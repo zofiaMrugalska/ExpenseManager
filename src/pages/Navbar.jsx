@@ -1,15 +1,15 @@
+import Context from "../Context";
 import { Link } from "react-router-dom";
 import { FaRegMoon } from "react-icons/fa";
 import { FiMenu, FiSun } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
 import { useState } from "react";
 import { useContext } from "react";
-import Context from "../Context";
 
 const Navbar = () => {
-  const [isIconMenuOrClose, setIsIconMenuOrClose] = useState(true);
-
   const { mode, toggleMode } = useContext(Context);
+   
+  const [isIconMenuOrClose, setIsIconMenuOrClose] = useState(true);
 
   const changeMode = () => {
     toggleMode();

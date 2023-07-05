@@ -1,5 +1,6 @@
-import Layout from "./pages/Layout";
 import { ModeProvider } from "./Context";
+
+import Layout from "./pages/Layout";
 
 function App() {
   return (
