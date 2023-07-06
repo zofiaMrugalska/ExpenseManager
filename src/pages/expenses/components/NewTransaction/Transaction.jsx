@@ -34,8 +34,8 @@ const Transaction = () => {
         </h1>
         <div>
           <button
-            className={`flex items-center justify-center gap-4 w-full mt-8 ${changeBackgroundColor} p-4 rounded-xl text-lg font-semibold hover:bg-[#B0E2C7] hover:text-black`}
             onClick={openCloseIncomes}
+            className={`flex items-center justify-center gap-4 w-full mt-8 ${changeBackgroundColor} p-4 rounded-xl text-lg font-semibold hover:bg-[#B0E2C7] hover:text-black`}
           >
             INCOMES <SlArrowDown size={22} />
           </button>
@@ -45,8 +45,8 @@ const Transaction = () => {
 
         <div>
           <button
-            className={`flex items-center justify-center gap-4 w-full mt-8 ${changeBackgroundColor} p-4 rounded-xl text-lg font-semibold hover:bg-[#FEC7C7]  hover:text-black`}
             onClick={openCloseExpenses}
+            className={`flex items-center justify-center gap-4 w-full mt-8 ${changeBackgroundColor} p-4 rounded-xl text-lg font-semibold hover:bg-[#FEC7C7]  hover:text-black`}
           >
             EXPENSES <SlArrowDown size={22} />
           </button>

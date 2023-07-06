@@ -58,9 +58,9 @@ const History = () => {
                     <p>{value.incomesDate}</p>
                     <p className=" text-green-600 font-semibold">{value.incomesAmount}$</p>
                     <HiOutlineTrash
+                      onClick={() => deleteItem(index)}
                       size={23}
                       className=" cursor-pointer"
-                      onClick={() => deleteItem(index)}
                     />
                     <button className=" hover:scale-110 hover:font-semibold">edit</button>
                   </div>
@@ -76,9 +76,9 @@ const History = () => {
                     <p>{value.expensesDate}</p>
                     <p className=" text-red-600 font-semibold">{value.expensesAmount}$</p>
                     <HiOutlineTrash
+                      onClick={() => deleteItem(index)}
                       size={23}
                       className=" cursor-pointer"
-                      onClick={() => deleteItem(index)}
                     />
                     <button className=" hover:scale-110 hover:font-semibold">edit</button>
                   </div>

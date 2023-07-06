@@ -47,13 +47,13 @@ const Filter = ({ setFilterIncomes, setFilterExpenses, setFilterAll }) => {
       {filterIsOpen && (
         <div className="flex justify-end">
           <ul className="text-center px-4 pb-3">
-            <li onClick={incomesFilter} className=" border-b-2 cursor-pointer">
+            <li onClick={incomesFilter} className=" border-b-2 cursor-pointer hover:font-semibold">
               Incomes
             </li>
-            <li onClick={expensesFilter} className=" border-b-2 cursor-pointer">
+            <li onClick={expensesFilter} className=" border-b-2 cursor-pointer hover:font-semibold">
               Expenses
             </li>
-            <li onClick={allFilter} className=" border-b-2 cursor-pointer">
+            <li onClick={allFilter} className=" border-b-2 cursor-pointer hover:font-semibold">
               All
             </li>
           </ul>

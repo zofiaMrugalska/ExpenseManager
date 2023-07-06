@@ -60,7 +60,12 @@ const ExpensesForm = () => {
           />
           <p className="text-red-500 text-sm">{errors.expensesAmount?.message} </p>
         </div>
-        <button onSubmit={expensesForm} className="col-span-2 rounded-lg bg-[#78E476]">
+        <button
+          onSubmit={expensesForm}
+          className={`col-span-2 rounded-lg ${
+            mode === "light" ? "text-black" : "text-black"
+          } bg-[#78E476]`}
+        >
           Add
         </button>
       </form>
