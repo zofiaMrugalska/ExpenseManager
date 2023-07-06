@@ -50,7 +50,7 @@ const History = () => {
               <div key={index}>
                 {value.incomesTitle && (
                   <div
-                    className={`grid grid-cols-4 place-items-center mt-5 py-3 px-4 rounded-xl text-base sm:text-lg ${changeBackgroundColor}  ${
+                    className={`grid grid-cols-5 place-items-center mt-5 py-3 px-3 rounded-xl text-base sm:text-lg ${changeBackgroundColor}  ${
                       filterIncomes ? `block` : `hidden`
                     } `}
                   >
@@ -62,12 +62,13 @@ const History = () => {
                       className=" cursor-pointer"
                       onClick={() => deleteItem(index)}
                     />
+                    <button className=" hover:scale-110 hover:font-semibold">edit</button>
                   </div>
                 )}
 
                 {value.expensesTitle && (
                   <div
-                    className={`grid grid-cols-4 place-items-center mt-5 py-3 px-4 rounded-xl text-base sm:text-lg ${changeBackgroundColor} ${
+                    className={`grid grid-cols-5 place-items-center mt-5 py-3 px-3 rounded-xl text-base sm:text-lg ${changeBackgroundColor} ${
                       filterExpenses ? "block" : "hidden"
                     }`}
                   >
@@ -79,6 +80,7 @@ const History = () => {
                       className=" cursor-pointer"
                       onClick={() => deleteItem(index)}
                     />
+                    <button className=" hover:scale-110 hover:font-semibold">edit</button>
                   </div>
                 )}
               </div>
