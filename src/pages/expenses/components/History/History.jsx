@@ -12,6 +12,8 @@ const History = () => {
   const [filterExpenses, setFilterExpenses] = useState(true);
   const [filterAll, setFilterAll] = useState(true);
 
+  const [editBtn, setEditBtn] = useState(true);
+
   const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
 
   const sortedHistoryData = historyData.sort((a, b) => {
@@ -24,6 +26,10 @@ const History = () => {
     const newHistoryData = [...sortedHistoryData];
     newHistoryData.splice(index, 1);
     setHistoryData(newHistoryData);
+  };
+
+  const toggleEditBtn = () => {
+    setEditBtn(!editBtn);
   };
 
   return (
@@ -54,15 +60,29 @@ const History = () => {
                       filterIncomes ? `block` : `hidden`
                     } `}
                   >
-                    <p>{value.incomesTitle}</p>
-                    <p>{value.incomesDate}</p>
-                    <p className=" text-green-600 font-semibold">{value.incomesAmount}$</p>
+                    {editBtn ? <p>{value.incomesTitle}</p> : <input className=" max-w-[110px]" />}
+                    {editBtn ? (
+                      <p>{value.incomesDate}</p>
+                    ) : (
+                      <input type="date" className=" max-w-[110px]" />
+                    )}
+                    {editBtn ? (
+                      <p className=" text-green-600 font-semibold">{value.incomesAmount}$</p>
+                    ) : (
+                      <input className=" max-w-[110px]" />
+                    )}
+
                     <HiOutlineTrash
                       onClick={() => deleteItem(index)}
                       size={23}
                       className=" cursor-pointer"
                     />
-                    <button className=" hover:scale-110 hover:font-semibold">edit</button>
+                    <button
+                      onClick={toggleEditBtn}
+                      className=" hover:scale-110 hover:font-semibold"
+                    >
+                      edit
+                    </button>
                   </div>
                 )}
 
