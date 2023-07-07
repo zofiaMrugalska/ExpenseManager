@@ -32,6 +32,8 @@ const History = () => {
     setEditBtn(!editBtn);
   };
 
+  const handleChangeInput = (event) => {};
+
   return (
     <div className=" font-K2D">
       <section className="max-w-[600px] lg:max-w-[800px] lg:mx-auto   ">
@@ -60,16 +62,39 @@ const History = () => {
                       filterIncomes ? `block` : `hidden`
                     } `}
                   >
-                    {editBtn ? <p>{value.incomesTitle}</p> : <input className=" max-w-[110px]" />}
+                    {editBtn ? (
+                      <p>{value.incomesTitle}</p>
+                    ) : (
+                      <input
+                        name="incomesTitle"
+                        value={value.incomesTitle}
+                        onChange={handleChangeInput}
+                        className=" max-w-[110px] border border-black rounded-lg"
+                      />
+                    )}
+
                     {editBtn ? (
                       <p>{value.incomesDate}</p>
                     ) : (
-                      <input type="date" className=" max-w-[110px]" />
+                      <input
+                        name="incomesDate"
+                        value={value.incomesDate}
+                        onChange={handleChangeInput}
+                        type="date"
+                        className=" max-w-[110px] border border-black rounded-lg"
+                      />
                     )}
+
                     {editBtn ? (
                       <p className=" text-green-600 font-semibold">{value.incomesAmount}$</p>
                     ) : (
-                      <input className=" max-w-[110px]" />
+                      <input
+                        name="incomesAmount"
+                        value={value.incomesAmount}
+                        onChange={handleChangeInput}
+                        type="number"
+                        className=" max-w-[110px] border border-black rounded-lg"
+                      />
                     )}
 
                     <HiOutlineTrash
@@ -92,15 +117,52 @@ const History = () => {
                       filterExpenses ? "block" : "hidden"
                     }`}
                   >
-                    <p>{value.expensesTitle}</p>
-                    <p>{value.expensesDate}</p>
-                    <p className=" text-red-600 font-semibold">{value.expensesAmount}$</p>
+                    {editBtn ? (
+                      <p>{value.expensesTitle}</p>
+                    ) : (
+                      <input
+                        name="expensesTitle"
+                        value={value.expensesTitle}
+                        onChange={handleChangeInput}
+                        className=" max-w-[110px] border border-black rounded-lg"
+                      />
+                    )}
+
+                    {editBtn ? (
+                      <p>{value.expensesDate}</p>
+                    ) : (
+                      <input
+                        name="expensesDate"
+                        value={value.expensesDate}
+                        onChange={handleChangeInput}
+                        type="date"
+                        className=" max-w-[110px] border border-black  rounded-lg"
+                      />
+                    )}
+
+                    {editBtn ? (
+                      <p className=" text-red-600 font-semibold">{value.expensesAmount}$</p>
+                    ) : (
+                      <input
+                        name="expensesAmount"
+                        value={value.expensesAmount}
+                        onChange={handleChangeInput}
+                        type="number"
+                        className=" max-w-[110px] border border-black rounded-lg"
+                      />
+                    )}
+
                     <HiOutlineTrash
                       onClick={() => deleteItem(index)}
                       size={23}
                       className=" cursor-pointer"
                     />
-                    <button className=" hover:scale-110 hover:font-semibold">edit</button>
+                    <button
+                      onClick={toggleEditBtn}
+                      className=" hover:scale-110 hover:font-semibold"
+                    >
+                      edit
+                    </button>
                   </div>
                 )}
               </div>
