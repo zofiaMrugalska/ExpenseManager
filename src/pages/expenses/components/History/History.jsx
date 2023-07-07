@@ -50,7 +50,7 @@ const History = () => {
               <div key={index}>
                 {value.incomesTitle && (
                   <div
-                    className={`grid grid-cols-5 place-items-center mt-5 py-3 px-3 rounded-xl text-base sm:text-lg ${changeBackgroundColor}  ${
+                    className={`grid grid-cols-5 place-items-center mt-5 py-3 px-3 rounded-xl text-base sm:text-lg ${changeBackgroundColor} ${
                       filterIncomes ? `block` : `hidden`
                     } `}
                   >
