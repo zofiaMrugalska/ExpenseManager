@@ -1,9 +1,12 @@
-import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import Context from "../../../../Context";
+import { useForm } from "react-hook-form";
 
 const IncomesForm = () => {
   const { mode, addHistoryData, historyData } = useContext(Context);
+
+  const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
+  const inputStyle = `border rounded-xl p-2 w-full ${changeBackgroundColor}`;
 
   const {
     register,
@@ -11,9 +14,6 @@ const IncomesForm = () => {
     formState: { errors },
     reset,
   } = useForm();
-
-  const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
-  const inputStyle = `border rounded-xl p-2 w-full ${changeBackgroundColor}`;
 
   const incomesForm = (data) => {
     addHistoryData(data);

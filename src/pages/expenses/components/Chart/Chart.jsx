@@ -1,11 +1,12 @@
-import { Line } from "react-chartjs-2";
 import { useContext } from "react";
 import Context from "../../../../Context";
 import { useState } from "react";
+import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 
 const Chart = () => {
   const { mode, historyData } = useContext(Context);
+
   const [incomesChartOpen, setIncomesChartOpen] = useState(true);
   const [expensesChartOpen, setExpensesChartOpen] = useState(false);
 

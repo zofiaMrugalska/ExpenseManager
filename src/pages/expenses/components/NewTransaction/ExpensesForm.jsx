@@ -1,18 +1,19 @@
-import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import Context from "../../../../Context";
+import { useForm } from "react-hook-form";
 
 const ExpensesForm = () => {
   const { mode, addHistoryData, historyData } = useContext(Context);
+
+  const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
+  const inputStyle = `border rounded-xl p-2 w-full ${changeBackgroundColor}`;
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
-
-  const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
-  const inputStyle = `border rounded-xl p-2 w-full ${changeBackgroundColor}`;
 
   const expensesForm = (data) => {
     addHistoryData(data);
@@ -59,7 +60,12 @@ const ExpensesForm = () => {
           />
           <p className="text-red-500 text-sm">{errors.expensesAmount?.message} </p>
         </div>
-        <button onSubmit={expensesForm} className="col-span-2 rounded-lg bg-[#78E476]">
+        <button
+          onSubmit={expensesForm}
+          className={`col-span-2 rounded-lg ${
+            mode === "light" ? "text-black" : "text-black"
+          } bg-[#78E476]`}
+        >
           Add
         </button>
       </form>

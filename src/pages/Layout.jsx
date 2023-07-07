@@ -1,9 +1,10 @@
+import Context from "../Context";
+import { useContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Home from "./home/Home";
 import Expenses from "./expenses/Expenses";
 import Navbar from "./Navbar";
-import Context from "../Context";
-import { useContext } from "react";
 
 const Layout = () => {
   const { mode } = useContext(Context);

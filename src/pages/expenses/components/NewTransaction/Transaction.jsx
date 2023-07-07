@@ -1,15 +1,18 @@
-import { SlArrowDown } from "react-icons/sl";
-import { useState } from "react";
 import { useContext } from "react";
 import Context from "../../../../Context";
+import { SlArrowDown } from "react-icons/sl";
+import { useState } from "react";
 
 import ExpensesForm from "./ExpensesForm";
 import IncomesForm from "./IncomesForm";
 
 const Transaction = () => {
   const { mode } = useContext(Context);
+
   const [incomesIsOpen, setIncomesIsOpen] = useState(false);
   const [expensesIsOpen, setExpensesIsOpen] = useState(false);
+
+  const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
 
   const openCloseIncomes = () => {
     setIncomesIsOpen(!incomesIsOpen);
@@ -18,8 +21,6 @@ const Transaction = () => {
   const openCloseExpenses = () => {
     setExpensesIsOpen(!expensesIsOpen);
   };
-
-  const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
 
   return (
     <div className=" font-K2D">
@@ -33,8 +34,8 @@ const Transaction = () => {
         </h1>
         <div>
           <button
-            className={`flex items-center justify-center gap-4 w-full mt-8 ${changeBackgroundColor} p-4 rounded-xl text-lg font-semibold hover:bg-[#B0E2C7] hover:text-black`}
             onClick={openCloseIncomes}
+            className={`flex items-center justify-center gap-4 w-full mt-8 ${changeBackgroundColor} p-4 rounded-xl text-lg font-semibold hover:bg-[#B0E2C7] hover:text-black`}
           >
             INCOMES <SlArrowDown size={22} />
           </button>
@@ -44,8 +45,8 @@ const Transaction = () => {
 
         <div>
           <button
-            className={`flex items-center justify-center gap-4 w-full mt-8 ${changeBackgroundColor} p-4 rounded-xl text-lg font-semibold hover:bg-[#FEC7C7]  hover:text-black`}
             onClick={openCloseExpenses}
+            className={`flex items-center justify-center gap-4 w-full mt-8 ${changeBackgroundColor} p-4 rounded-xl text-lg font-semibold hover:bg-[#FEC7C7]  hover:text-black`}
           >
             EXPENSES <SlArrowDown size={22} />
           </button>
