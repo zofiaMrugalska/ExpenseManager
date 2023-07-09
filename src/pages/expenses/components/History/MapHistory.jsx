@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Context from "../../../../Context";
 
 import { HiOutlineTrash } from "react-icons/hi";
@@ -7,6 +7,7 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
   const { mode, historyData, setHistoryData } = useContext(Context);
 
   const [editBtn, setEditBtn] = useState(true);
+  const [editingData, setEditingData] = useState({ ...historyData[index] });
 
   const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
 
@@ -16,16 +17,41 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
 
   const handleChangeInput = (event) => {
     const { name, value } = event.target;
+
+    if (name === "incomesAmount" || name === "expensesAmount") {
+      setEditingData((previousData) => ({
+        ...previousData,
+        [name]: Number(value),
+      }));
+    } else {
+      setEditingData((previousData) => ({
+        ...previousData,
+        [name]: value,
+      }));
+    }
+  };
+
+  const handleSave = () => {
     setHistoryData((previousList) => {
-      let copyList = [...previousList];
-      copyList[index][name] = value;
-      return copyList;
+      const newList = [...previousList];
+      newList[index] = editingData;
+      return newList;
     });
+    toggleEditBtn();
+    console.log(historyData);
+  };
+
+  const thereIsIncomesData = () => {
+    return value.incomesAmount || value.incomesDate || value.incomesTitle;
+  };
+
+  const thereIsExpensesData = () => {
+    return value.expensesAmount || value.expensesDate || value.expensesTitle;
   };
 
   return (
     <div key={index}>
-      {value.incomesTitle && (
+      {thereIsIncomesData() && (
         <div
           className={`grid grid-cols-5 place-items-center mt-5 py-3 px-3 rounded-xl text-base sm:text-lg ${changeBackgroundColor} ${
             filterIncomes ? `block` : `hidden`
@@ -36,7 +62,7 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
           ) : (
             <input
               name="incomesTitle"
-              value={value.incomesTitle}
+              value={editingData.incomesTitle}
               onChange={handleChangeInput}
               className=" max-w-[110px] border border-black rounded-lg"
             />
@@ -47,7 +73,7 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
           ) : (
             <input
               name="incomesDate"
-              value={value.incomesDate}
+              value={editingData.incomesDate}
               onChange={handleChangeInput}
               type="date"
               className=" max-w-[110px] border border-black rounded-lg"
@@ -59,7 +85,7 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
           ) : (
             <input
               name="incomesAmount"
-              value={value.incomesAmount}
+              value={editingData.incomesAmount}
               onChange={handleChangeInput}
               type="number"
               className=" max-w-[110px] border border-black rounded-lg"
@@ -73,14 +99,14 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
               edit
             </button>
           ) : (
-            <button onClick={toggleEditBtn} className=" hover:scale-110 hover:font-semibold">
+            <button onClick={handleSave} className=" hover:scale-110 hover:font-semibold">
               save
             </button>
           )}
         </div>
       )}
 
-      {value.expensesTitle && (
+      {thereIsExpensesData() && (
         <div
           className={`grid grid-cols-5 place-items-center mt-5 py-3 px-3 rounded-xl text-base sm:text-lg ${changeBackgroundColor} ${
             filterExpenses ? "block" : "hidden"
@@ -91,7 +117,7 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
           ) : (
             <input
               name="expensesTitle"
-              value={value.expensesTitle}
+              value={editingData.expensesTitle}
               onChange={handleChangeInput}
               className=" max-w-[110px] border border-black rounded-lg"
             />
@@ -102,7 +128,7 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
           ) : (
             <input
               name="expensesDate"
-              value={value.expensesDate}
+              value={editingData.expensesDate}
               onChange={handleChangeInput}
               type="date"
               className=" max-w-[110px] border border-black  rounded-lg"
@@ -114,7 +140,7 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
           ) : (
             <input
               name="expensesAmount"
-              value={value.expensesAmount}
+              value={editingData.expensesAmount}
               onChange={handleChangeInput}
               type="number"
               className=" max-w-[110px] border border-black rounded-lg"
@@ -128,7 +154,7 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
               edit
             </button>
           ) : (
-            <button onClick={toggleEditBtn} className=" hover:scale-110 hover:font-semibold">
+            <button onClick={handleSave} className=" hover:scale-110 hover:font-semibold">
               save
             </button>
           )}
