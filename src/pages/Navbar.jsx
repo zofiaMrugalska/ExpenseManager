@@ -8,12 +8,8 @@ import { useContext } from "react";
 
 const Navbar = () => {
   const { mode, toggleMode } = useContext(Context);
-   
-  const [isIconMenuOrClose, setIsIconMenuOrClose] = useState(true);
 
-  const changeMode = () => {
-    toggleMode();
-  };
+  const [isIconMenuOrClose, setIsIconMenuOrClose] = useState(true);
 
   const toggleIconsMenu = () => {
     setIsIconMenuOrClose(!isIconMenuOrClose);

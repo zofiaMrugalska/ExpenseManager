@@ -12,6 +12,7 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
   const { register, handleSubmit, reset } = useForm();
 
   const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
+  const inputStyle = `max-w-[60px] sm:max-w-[100px] lg:max-w-[60px] xl:max-w-[80px] 2xl:max-w-[100px] border border-black rounded-lg ${changeBackgroundColor}`;
 
   const thereIsIncomesData = () => {
     return value.incomesAmount || value.incomesDate || value.incomesTitle;
@@ -53,7 +54,7 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
                 })}
                 type="text"
                 placeholder={value.incomesTitle}
-                className="max-w-[110px] border border-black rounded-lg"
+                className={` ${inputStyle}`}
               />
             )}
 
@@ -67,7 +68,7 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
                   maxLength: { value: 20, message: "no more than 20 characters" },
                 })}
                 type="date"
-                className="max-w-[110px] border border-black rounded-lg"
+                className={` ${inputStyle}`}
               />
             )}
 
@@ -77,12 +78,13 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
               <input
                 {...register("incomesAmount", {
                   required: "title is required",
+                  valueAsNumber: true,
                   minLength: { value: 1, message: "no less than 4 characters" },
                   maxLength: { value: 20, message: "no more than 20 characters" },
                 })}
                 type="number"
                 placeholder={value.incomesAmount}
-                className="max-w-[110px] border border-black rounded-lg"
+                className={` ${inputStyle}`}
               />
             )}
 
@@ -121,7 +123,7 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
                 })}
                 type="text"
                 placeholder={value.expensesTitle}
-                className="max-w-[110px] border border-black rounded-lg"
+                className={` ${inputStyle}`}
               />
             )}
 
@@ -136,7 +138,7 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
                 })}
                 type="date"
                 placeholder={value.expensesDate}
-                className="max-w-[110px] border border-black rounded-lg"
+                className={` ${inputStyle}`}
               />
             )}
 
@@ -146,12 +148,13 @@ const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem })
               <input
                 {...register("expensesAmount", {
                   required: "title is required",
+                  valueAsNumber: true,
                   minLength: { value: 1, message: "no less than 4 characters" },
                   maxLength: { value: 20, message: "no more than 20 characters" },
                 })}
                 type="number"
                 placeholder={value.expensesAmount}
-                className="max-w-[110px] border border-black rounded-lg"
+                className={` ${inputStyle}`}
               />
             )}
 
