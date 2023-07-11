@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import Context from "../../../../Context";
 import { useForm } from "react-hook-form";
-
 import { HiOutlineTrash } from "react-icons/hi";
 
 const MapHistory = ({ value, index, filterIncomes, filterExpenses, deleteItem }) => {

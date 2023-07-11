@@ -3,7 +3,7 @@ import Context from "../../../../Context";
 import { IoMdArrowDropdown } from "react-icons/io";
 
 const Filter = ({ setFilterIncomes, setFilterExpenses, setFilterAll }) => {
-  const { mode, historyData, setHistoryData } = useContext(Context);
+  const { mode } = useContext(Context);
 
   const [filterIsOpen, setFilterIsOpen] = useState(false);
 
@@ -12,7 +12,6 @@ const Filter = ({ setFilterIncomes, setFilterExpenses, setFilterAll }) => {
   };
 
   const changeBackgroundColor = mode === "light" ? "bg-[#F3F3F3]" : "bg-[#272626]";
-  console.log(historyData);
 
   const incomesFilter = () => {
     setFilterIncomes(true);
