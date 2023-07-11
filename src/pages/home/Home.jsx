@@ -6,9 +6,10 @@ const Home = () => {
         <div>
           <h1 className=" text-2xl font-bold">Manage Your Budget with ExpenseManager!</h1>
           <p className=" text-lg mt-7">
-            Have you ever wondered how to effectively manage your finances? Our application is here
-            to help you! With our tools, it's easy to track your expenses, income, and expenditures,
-            as well as generate charts.
+            Have you ever wondered how to effectively manage your finances?
+            <br />
+            Our application is here to help you! With our tools, it's easy to track your expenses,
+            income, and expenditures, as well as generate charts.
           </p>
           <h2 className=" text-xl font-bold mt-5">Take control of your money !</h2>
         </div>
