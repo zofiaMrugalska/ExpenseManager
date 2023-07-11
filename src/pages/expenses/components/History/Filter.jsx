@@ -1,7 +1,6 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Context from "../../../../Context";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { useState } from "react";
 
 const Filter = ({ setFilterIncomes, setFilterExpenses, setFilterAll }) => {
   const { mode, historyData, setHistoryData } = useContext(Context);
