@@ -1,7 +1,6 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Context from "../../../../Context";
 import { SlArrowDown } from "react-icons/sl";
-import { useState } from "react";
 
 import ExpensesForm from "./ExpensesForm";
 import IncomesForm from "./IncomesForm";
