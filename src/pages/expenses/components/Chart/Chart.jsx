@@ -3,6 +3,8 @@ import Context from "../../../../Context";
 import { Line } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 
+ChartJS.register();
+
 const Chart = () => {
   const { mode, historyData } = useContext(Context);
 

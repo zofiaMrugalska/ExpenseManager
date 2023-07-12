@@ -9,7 +9,7 @@ const History = () => {
 
   const [filterIncomes, setFilterIncomes] = useState(true);
   const [filterExpenses, setFilterExpenses] = useState(true);
-  const [filterAll, setFilterAll] = useState(true);
+  const [setFilterAll] = useState(true);
 
   const sortedHistoryData = historyData.sort((a, b) => {
     const dateA = new Date(a.expensesDate || a.incomesDate);

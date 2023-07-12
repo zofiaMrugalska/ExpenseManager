@@ -2,7 +2,7 @@
 
 ## Description ✨
 
-ExpenseManager is a user-friendly application designed to help you effectively manage your expenses and income, enabling you to take control of your budget
+ExpenseManager is a user-friendly application designed to help you effectively manage your expenses and income, enabling you to take control of your budget.
 
 ## Live preview
 
@@ -18,7 +18,10 @@ ExpenseManager is a user-friendly application designed to help you effectively m
 ## Installation
 
 ```
-
+- git clone https://github.com/ArturPawelski/Guitar-Lab
+- cd Guitar-Lab
+- npm install --legacy-peer-deps
+- npm start
 ```
 
 ## Screenshots 📸
