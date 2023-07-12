@@ -4,7 +4,9 @@
 
 ExpenseManager is a user-friendly application designed to help you effectively manage your expenses and income, enabling you to take control of your budget.
 
-## Live preview
+## Live preview 👓
+
+https://expensemanagerbyzofia.netlify.app/
 
 ## Tech stack ✏
 
@@ -15,13 +17,14 @@ ExpenseManager is a user-friendly application designed to help you effectively m
 - Tailwindcss
 - Figma
 
-## Installation
+## Installation 📲
 
 ```
-- git clone https://github.com/ArturPawelski/Guitar-Lab
-- cd Guitar-Lab
-- npm install --legacy-peer-deps
+- git clone https://github.com/zofiaMrugalska/ExpenseManager
+- cd ExpenseManager
+- npm install
 - npm start
+
 ```
 
 ## Screenshots 📸
