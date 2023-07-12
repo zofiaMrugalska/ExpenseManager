@@ -1,7 +1,7 @@
 import img from "../../images/expenseMenagerHome.png";
 const Home = () => {
   return (
-    <div className="font-K2D mt-14 lg:mt-[200px] ">
+    <div className="font-K2D mt-14 lg:mt-[200px]  ">
       <section className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-6 lg:place-items-start  ">
         <div>
           <h1 className=" text-2xl font-bold">Manage Your Budget with ExpenseManager!</h1>
